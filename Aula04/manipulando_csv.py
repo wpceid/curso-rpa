@@ -11,3 +11,5 @@ with open('saida.csv', 'w', newline='', encoding='utf-8') as arquivo:
     escritor_csv = csv.writer(arquivo)
     escritor_csv.writerow(['Nome', 'Idade'])
     escritor_csv.writerow(['Ana', 30])
+
+    
