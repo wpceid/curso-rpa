@@ -6,4 +6,4 @@ with open('saida.txt', 'w') as arquivo:
     arquivo.write('Olá, mundo!')
 # Adicionar conteúdo
 with open('log.txt', 'a') as arquivo:
-    arquivo.write('Nova linha\n')
+    arquivo.write('Erro Codigo\n')
