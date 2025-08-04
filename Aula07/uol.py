@@ -13,14 +13,22 @@ pyautogui.PAUSE = 0.5 # Pausa entre comandos
 pyautogui.FAILSAFE = True # Mecanismo de emergência
 
 def setup():
+    # Pressionando a tecla Windows do notebook
     pyautogui.press('win')
+    # Abringo o Navegador X
     pyautogui.write('Edge')
+    # Pressionando Enter para abrir o navegador
     pyautogui.press('enter')
     time.sleep(2)
 
     pyautogui.write('https://uol.com.br')
     pyautogui.press('enter')
     time.sleep(3)
+    botao = pyautogui.locateOnScreen('uol_logo.png')
+    time.sleep(3)
+    if botao is None:
+        raise Exception("Botão não encontrado na tela")
+
 
 def preencher_formulario(dados):
     """Preenche o formulário com os dados fornecidos"""

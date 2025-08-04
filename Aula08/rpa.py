@@ -7,17 +7,23 @@ import time
 # Configurar o driver
 servico = Service(ChromeDriverManager().install())
 navegador = webdriver.Chrome(service=servico)
-try: # Acessar o Google
-    navegador.get("https://www.google.com")
-    # Encontrar o campo de busca
-    campo_busca = navegador.find_element(By.NAME, "q")
-    # Digitar um termo de busca
-    campo_busca.send_keys("Selenium Python tutorial")
-    # Pressionar Enter
-    campo_busca.send_keys(Keys.RETURN)
-    # Esperar para ver os resultados
+try:
+    navegador.get("https://www.uol.com.br")
+
     time.sleep(5)
-    # Capturar o título dos resultados
-    print(f"Título da página: {navegador.title}")
-finally: # Fechar o navegador
+
+    email_link = navegador.find_element(By.CSS_SELECTOR, 'a[href="https://email.uol.com.br/"]')
+    email_link.click()
+    time.sleep(5)
+
+    email_input = navegador.find_element(By.ID, 'user')
+    email_input.send_keys("teste@uol.com.br")
+    time.sleep(5)
+
+    continue_button = navegador.find_element(By.ID, 'button-submit')
+    continue_button.click()
+    time.sleep(5)
+
+    
+finally:
     navegador.quit()
